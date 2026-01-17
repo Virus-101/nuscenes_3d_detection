@@ -1,0 +1,82 @@
+# nuScenes 3D Object Detection Configuration
+# ============================================
+# Default training configuration for RTX 4050 (6GB VRAM)
+
+# Dataset
+data_dir: /path/to/nuscenes  # UPDATE THIS!
+version: v1.0-mini  # or v1.0-trainval for full dataset
+
+# Model - Options: pointpillars, pointpillars_lite
+model: pointpillars_lite
+
+# Training
+epochs: 80
+batch_size: 2
+learning_rate: 0.001
+weight_decay: 0.01
+num_workers: 4
+
+# Point cloud settings
+point_cloud_range: [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]  # [x_min, y_min, z_min, x_max, y_max, z_max]
+voxel_size: [0.2, 0.2, 8.0]  # [x, y, z] in meters
+
+# Voxelization
+max_points_per_voxel: 32
+max_voxels: 16000  # Reduce if OOM
+
+# Model architecture
+pillar_features: 64  # 32 for lite version
+
+# Detection head
+num_anchors: 2  # Per class (0° and 90° orientations)
+box_code_size: 7  # x, y, z, w, l, h, yaw
+
+# Loss weights
+cls_weight: 1.0
+box_weight: 2.0
+dir_weight: 0.2
+
+# Optimization
+use_amp: true  # Automatic mixed precision
+optimizer: adamw
+
+# Learning rate schedule
+scheduler: cosine
+
+# Checkpointing
+save_every: 10
+output_dir: runs/detection_3d
+
+# Data augmentation
+augmentation:
+  random_rotation: 0.7854  # +/- 45 degrees
+  random_flip: true
+  random_scale: [0.95, 1.05]
+
+# Classes (10 nuScenes detection classes)
+num_classes: 10
+
+class_names:
+  - car
+  - truck
+  - bus
+  - trailer
+  - construction_vehicle
+  - pedestrian
+  - motorcycle
+  - bicycle
+  - traffic_cone
+  - barrier
+
+# Anchor sizes per class (w, l, h in meters)
+anchor_sizes:
+  car: [1.95, 4.60, 1.73]
+  truck: [2.51, 6.93, 2.84]
+  bus: [2.94, 10.5, 3.47]
+  trailer: [2.90, 12.3, 3.87]
+  construction_vehicle: [2.73, 6.37, 3.19]
+  pedestrian: [0.67, 0.73, 1.77]
+  motorcycle: [0.77, 2.11, 1.47]
+  bicycle: [0.60, 1.70, 1.28]
+  traffic_cone: [0.41, 0.41, 1.07]
+  barrier: [2.53, 0.50, 0.98]

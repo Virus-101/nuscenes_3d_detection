@@ -1,0 +1,36 @@
+# nuScenes 3D Object Detection - Requirements
+# Install with: pip install -r requirements.txt
+
+# Core
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Point cloud processing
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+
+# nuScenes devkit
+nuscenes-devkit>=1.1.10
+pyquaternion>=0.9.9
+
+# 3D operations
+open3d>=0.17.0
+pycocotools>=2.0.6
+
+# Sparse convolutions (for advanced models)
+# spconv-cu121>=2.3.0  # Uncomment if using SparseConv models
+
+# Visualization
+matplotlib>=3.7.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# Utilities
+tqdm>=4.65.0
+pyyaml>=6.0
+tensorboard>=2.13.0
+
+# Optional: Experiment tracking
+# wandb>=0.15.0
