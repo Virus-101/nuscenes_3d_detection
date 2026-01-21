@@ -2,7 +2,7 @@
 
 Complete 3D object detection training pipeline using PointPillars on nuScenes dataset, optimized for RTX 4050 (6GB VRAM).
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 nuscenes_3d_detection/
@@ -22,7 +22,7 @@ nuscenes_3d_detection/
 └── README.md                      # This file
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Step 1: Install Dependencies
 
@@ -114,7 +114,7 @@ python inference.py --weights ... --source sample.bin --viz_3d
 
 ---
 
-## 📊 Dataset Information
+## Dataset Information
 
 ### nuScenes Mini
 
@@ -151,7 +151,7 @@ python inference.py --weights ... --source sample.bin --viz_3d
 
 ---
 
-## 🤖 Available Models
+## Available Models
 
 | Model | Parameters | VRAM | Description |
 |-------|------------|------|-------------|
@@ -162,7 +162,7 @@ python inference.py --weights ... --source sample.bin --viz_3d
 
 ---
 
-## ⚙️ Training Options
+## Training Options
 
 ```bash
 python train.py --help
@@ -196,7 +196,7 @@ python train.py --data_dir ~/datasets/nuscenes --resume runs/detection_3d/.../ch
 
 ---
 
-## 📈 Expected Results
+## Expected Results
 
 After training on nuScenes mini with PointPillars Lite:
 
@@ -213,7 +213,7 @@ Training time on RTX 4050:
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Out of Memory (OOM)
 
@@ -250,7 +250,7 @@ python scripts/prepare_nuscenes.py --data_dir ~/datasets/nuscenes --version v1.0
 
 ---
 
-## 🔬 Technical Details
+## Technical Details
 
 ### PointPillars Architecture
 
@@ -286,7 +286,7 @@ Pillar Feature Net (PFN)
 
 ---
 
-## 🚗 Integration with Autonomous Driving Stack
+## Integration with Autonomous Driving Stack
 
 This 3D detection module integrates with:
 
@@ -316,7 +316,7 @@ detections_3d = detector_3d.predict(points)
 
 ---
 
-## 📤 Export for Deployment
+## Export for Deployment
 
 ```python
 import torch
@@ -334,7 +334,7 @@ model.eval()
 
 ---
 
-## 🔗 Resources
+## Resources
 
 - [nuScenes Dataset](https://www.nuscenes.org/)
 - [nuScenes DevKit](https://github.com/nutonomy/nuscenes-devkit)
@@ -343,16 +343,16 @@ model.eval()
 
 ---
 
-## 📝 Complete Autonomous Driving Stack
+## Complete Autonomous Driving Stack
 
 You now have all four perception modules:
 
 | Module | Dataset | Purpose |
 |--------|---------|---------|
-| ✅ Object Detection | BDD100K | 2D object detection |
-| ✅ Lane Detection | TuSimple | Lane marking detection |
-| ✅ Semantic Segmentation | Cityscapes | Scene understanding |
-| ✅ 3D Detection | nuScenes | 3D object localization |
+|  Object Detection | BDD100K | 2D object detection |
+|  Lane Detection | TuSimple | Lane marking detection |
+|  Semantic Segmentation | Cityscapes | Scene understanding |
+|  3D Detection | nuScenes | 3D object localization |
 
 **Next Steps:**
 1. Train all models on your RTX 4050
